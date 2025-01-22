@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from config import token  # Botun tokenini config dosyasından içe aktarma
+import random
 
 intents = discord.Intents.default()
 intents.members = True  # Botun kullanıcılarla çalışmasına ve onları banlamasına izin verir
@@ -15,6 +16,20 @@ async def on_ready():
 @bot.command()
 async def start(ctx):
     await ctx.send("Merhaba! Ben bir sohbet yöneticisi botuyum!")
+
+@bot.command()
+async def seç(ctx,a,b):
+    x=random.randint(1,2)
+    if x==1:
+        await ctx.send(a)
+    else:
+        await ctx.send(b)
+
+
+
+
+
+
 
 @bot.command()
 @commands.has_permissions(ban_members=True)
